@@ -17,9 +17,9 @@ RUN npm run build
 FROM nginx:1.27-alpine AS runtime
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Override default site to ensure Cloud Run's PORT (8080) is respected
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Provide template so Cloud Run's PORT env is injected at runtime
+COPY nginx.conf.template /etc/nginx/conf.d/default.conf.template
 
 EXPOSE 8080
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["sh", "-c", "envsubst '$PORT' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"]
 
