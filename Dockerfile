@@ -15,6 +15,10 @@ RUN npm run build
 
 # Use a lightweight web server image to serve the static assets
 FROM nginx:1.27-alpine AS runtime
+
+# Install envsubst to render nginx template with PORT
+RUN apk add --no-cache gettext
+
 COPY --from=build /app/dist /usr/share/nginx/html
 
 # Provide template so Cloud Run's PORT env is injected at runtime
