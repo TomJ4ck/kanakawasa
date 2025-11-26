@@ -1,3 +1,5 @@
+export type IndustryType = 'general' | 'agriculture' | 'construction';
+
 export interface GradeRow {
   grade: number;
   standard: number;
@@ -17,4 +19,5 @@ export interface CalculationResult {
   ageCategory: 'under40' | 'over40';
   grade: number;
   dependents: number;
+  industry: IndustryType;
 }

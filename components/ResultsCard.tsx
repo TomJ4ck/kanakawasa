@@ -3,10 +3,17 @@ import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recha
 import { useSelector } from 'react-redux';
 import { RootState } from '../store';
 import { Wallet, HeartPulse, Building2, Briefcase, Receipt, ArrowDownCircle } from 'lucide-react';
-import { RATES } from '../constants';
+import { EMPLOYMENT_RATES } from '../constants';
+import { IndustryType } from '../types';
 
 const formatYen = (num: number) => {
   return new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY', maximumFractionDigits: 0 }).format(num);
+};
+
+const industryDisplayNames: Record<IndustryType, string> = {
+    general: '一般の事業',
+    agriculture: '農林水産・清酒製造',
+    construction: '建設の事業'
 };
 
 export const ResultsCard: React.FC = () => {
@@ -18,8 +25,8 @@ export const ResultsCard: React.FC = () => {
         <div className="w-16 h-16 bg-[#F0F4F8] rounded-full flex items-center justify-center mb-4">
           <Wallet className="w-8 h-8 text-[#0B57D0]" />
         </div>
-        <p className="font-medium text-lg">等待计算</p>
-        <p className="text-sm mt-2 max-w-xs mx-auto text-[#747775]">输入月薪、年龄及行业信息后点击计算按钮。</p>
+        <p className="font-medium text-lg">計算待機中</p>
+        <p className="text-sm mt-2 max-w-xs mx-auto text-[#747775]">月収、年齢、事業の種類を入力して計算ボタンを押してください。</p>
       </div>
     );
   }
@@ -34,15 +41,16 @@ export const ResultsCard: React.FC = () => {
   };
 
   const data = [
-    { name: '实发工资', value: result.takeHomePay, color: COLORS.TAKE_HOME },
-    { name: '健康保险', value: result.healthInsurance, color: COLORS.HEALTH },
+    { name: '手取り額', value: result.takeHomePay, color: COLORS.TAKE_HOME },
+    { name: '健康保険', value: result.healthInsurance, color: COLORS.HEALTH },
     { name: '厚生年金', value: result.welfarePension, color: COLORS.PENSION },
     { name: '所得税(源泉)', value: result.incomeTaxEstimate, color: COLORS.TAX },
-    { name: '雇用保险', value: result.employmentInsurance, color: COLORS.EMPLOYMENT },
+    { name: '雇用保険', value: result.employmentInsurance, color: COLORS.EMPLOYMENT },
   ];
 
   const totalDeduction = result.socialInsuranceTotal + result.incomeTaxEstimate;
-  const employmentRatePercent = (RATES.EMPLOYMENT_RATE * 100).toFixed(2) + '%';
+  const employmentRatePercent = (EMPLOYMENT_RATES[result.industry] * 100).toFixed(2) + '%';
+  const industryName = industryDisplayNames[result.industry];
 
   return (
     <div className="bg-white rounded-[24px] shadow-md border border-[#F1F3F4] overflow-hidden animate-fade-in-up">
@@ -50,8 +58,8 @@ export const ResultsCard: React.FC = () => {
       {/* Header */}
       <div className="px-6 pt-6 flex justify-between items-end">
         <div>
-          <h2 className="text-[22px] font-normal text-[#1F1F1F]">计算结果</h2>
-          <p className="text-sm text-[#444746]">标准报酬 Grade {result.grade} ({formatYen(result.standardRemuneration)})</p>
+          <h2 className="text-[22px] font-normal text-[#1F1F1F]">計算結果</h2>
+          <p className="text-sm text-[#444746]">標準報酬月額 等級 {result.grade} ({formatYen(result.standardRemuneration)})</p>
         </div>
       </div>
 
@@ -59,11 +67,11 @@ export const ResultsCard: React.FC = () => {
         {/* Primary Stat Card: Take Home */}
         <div className="bg-[#E6F4EA] rounded-[20px] p-6 md:p-8 text-[#0D652D] mb-8 flex flex-col md:flex-row justify-between items-center md:items-end gap-4 shadow-sm">
           <div>
-            <div className="text-sm font-medium uppercase tracking-wide opacity-80 mb-1">最终实发工资 (预估)</div>
+            <div className="text-sm font-medium uppercase tracking-wide opacity-80 mb-1">手取り額 (概算)</div>
             <div className="text-5xl font-bold tracking-tight">{formatYen(result.takeHomePay)}</div>
           </div>
           <div className="bg-white/60 px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm">
-            到手率 {((result.takeHomePay / result.grossSalary) * 100).toFixed(1)}%
+            手取り率 {((result.takeHomePay / result.grossSalary) * 100).toFixed(1)}%
           </div>
         </div>
 
@@ -71,7 +79,7 @@ export const ResultsCard: React.FC = () => {
         <div className="grid lg:grid-cols-12 gap-8">
           {/* List */}
           <div className="lg:col-span-7 space-y-4">
-            <h3 className="text-sm font-medium text-[#444746] px-2">扣除明细</h3>
+            <h3 className="text-sm font-medium text-[#444746] px-2">控除の内訳</h3>
             
             {/* Health */}
             <div className="flex items-center justify-between p-4 rounded-[16px] bg-[#F8F9FA] border border-transparent hover:border-[#D3E3FD] transition-colors">
@@ -80,9 +88,9 @@ export const ResultsCard: React.FC = () => {
                   <HeartPulse size={20} />
                 </div>
                 <div>
-                  <div className="font-medium text-[#1F1F1F]">健康保险</div>
+                  <div className="font-medium text-[#1F1F1F]">健康保険料</div>
                   <div className="text-xs text-[#444746]">
-                     {result.ageCategory === 'over40' ? '含护理险 (40-64岁)' : '标准费率 (<40岁)'}
+                     {result.ageCategory === 'over40' ? '介護保険料含む (40-64歳)' : '基本料率 (<40歳)'}
                   </div>
                 </div>
               </div>
@@ -96,8 +104,8 @@ export const ResultsCard: React.FC = () => {
                   <Building2 size={20} />
                 </div>
                 <div>
-                  <div className="font-medium text-[#1F1F1F]">厚生年金</div>
-                  <div className="text-xs text-[#444746]">退休金基础</div>
+                  <div className="font-medium text-[#1F1F1F]">厚生年金保険料</div>
+                  <div className="text-xs text-[#444746]">年金の基礎</div>
                 </div>
               </div>
               <span className="font-medium text-[#1F1F1F]">-{formatYen(result.welfarePension)}</span>
@@ -110,8 +118,8 @@ export const ResultsCard: React.FC = () => {
                   <Briefcase size={20} />
                 </div>
                 <div>
-                  <div className="font-medium text-[#1F1F1F]">雇用保险</div>
-                  <div className="text-xs text-[#444746]">费率: {employmentRatePercent}</div>
+                  <div className="font-medium text-[#1F1F1F]">雇用保険料</div>
+                  <div className="text-xs text-[#444746]">{industryName} - 保険料率: {employmentRatePercent}</div>
                 </div>
               </div>
               <span className="font-medium text-[#1F1F1F]">-{formatYen(result.employmentInsurance)}</span>
@@ -125,7 +133,7 @@ export const ResultsCard: React.FC = () => {
                 </div>
                 <div>
                   <div className="font-medium">源泉所得税</div>
-                  <div className="text-xs opacity-80">扶养亲属: {result.dependents}人</div>
+                  <div className="text-xs opacity-80">扶養親族: {result.dependents}人</div>
                 </div>
               </div>
               <span className="font-medium">-{formatYen(result.incomeTaxEstimate)}</span>
@@ -133,7 +141,7 @@ export const ResultsCard: React.FC = () => {
             
             <div className="flex justify-end pt-2 px-2">
                <div className="text-sm text-[#444746]">
-                 扣除总计: <span className="font-bold text-[#B3261E]">-{formatYen(totalDeduction)}</span>
+                 控除合計: <span className="font-bold text-[#B3261E]">-{formatYen(totalDeduction)}</span>
                </div>
             </div>
           </div>
@@ -164,7 +172,7 @@ export const ResultsCard: React.FC = () => {
                 </PieChart>
               </ResponsiveContainer>
               <div className="text-center mt-[-140px] mb-[80px]">
-                <div className="text-xs text-[#444746] mb-1">到手</div>
+                <div className="text-xs text-[#444746] mb-1">手取り</div>
                 <div className="text-xl font-bold text-[#34A853]">{((result.takeHomePay / result.grossSalary) * 100).toFixed(0)}%</div>
               </div>
               <div className="flex flex-wrap gap-2 justify-center mt-8">

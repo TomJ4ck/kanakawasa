@@ -1,4 +1,4 @@
-import { GradeRow } from './types';
+import { GradeRow, IndustryType } from './types';
 
 // Rates for Kanagawa 2025 (Employee Share)
 // Health (Under 40): 9.92% / 2 = 4.96%
@@ -9,10 +9,15 @@ export const RATES = {
   HEALTH_RATE_UNDER_40: 0.0496,
   HEALTH_RATE_OVER_40: 0.05755,
   PENSION_RATE: 0.0915,
-  // Employment Insurance Rate for Reiwa 7 (2025) - General Worker Burden
-  // General: 5.5/1000 = 0.0055
-  EMPLOYMENT_RATE: 0.0055
 };
+
+// Employment Insurance Rates for Reiwa 7 (2025) - Worker Burden
+export const EMPLOYMENT_RATES: Record<IndustryType, number> = {
+  general: 5.5 / 1000,       // 0.0055
+  agriculture: 6.5 / 1000,    // 0.0065 (農林水産・清酒製造)
+  construction: 6.5 / 1000,   // 0.0065 (建設)
+};
+
 
 // Lookup table for Kanagawa 2025
 // Based on "Standard Monthly Remuneration" (Hyojun Houshu Getsugaku)

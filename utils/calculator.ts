@@ -1,5 +1,5 @@
-import { RATES, REMUNERATION_TABLE, TAX_TABLE } from '../constants';
-import { CalculationResult, GradeRow } from '../types';
+import { RATES, REMUNERATION_TABLE, TAX_TABLE, EMPLOYMENT_RATES } from '../constants';
+import { CalculationResult, GradeRow, IndustryType } from '../types';
 
 // Withholding Tax Calculation Logic
 const calculateWithholdingTax = (taxableIncome: number, dependents: number): number => {
@@ -57,7 +57,8 @@ const calculateWithholdingTax = (taxableIncome: number, dependents: number): num
 export const calculatePay = (
   grossSalary: number, 
   ageCategory: 'under40' | 'over40', 
-  dependents: number
+  dependents: number,
+  industry: IndustryType
 ): CalculationResult => {
   
   // 1. Find Standard Monthly Remuneration (Hyojun Houshu Getsugaku)
@@ -85,8 +86,9 @@ export const calculatePay = (
   const welfarePension = Math.floor(welfarePensionRaw);
 
   // 4. Employment Insurance (Koyou Hoken)
-  // Uses General Industry Rate for 2025
-  const employmentInsurance = Math.floor(grossSalary * RATES.EMPLOYMENT_RATE);
+  // Uses rate based on selected industry
+  const employmentRate = EMPLOYMENT_RATES[industry];
+  const employmentInsurance = Math.floor(grossSalary * employmentRate);
 
   // 5. Totals
   const socialInsuranceTotal = healthInsurance + welfarePension + employmentInsurance;
@@ -110,6 +112,7 @@ export const calculatePay = (
     takeHomePay,
     ageCategory,
     grade,
-    dependents
+    dependents,
+    industry
   };
 };

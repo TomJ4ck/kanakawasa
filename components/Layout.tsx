@@ -20,14 +20,14 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <FileText size={24} strokeWidth={2} />
               </div>
               <h1 className="text-[22px] font-normal text-[#1F1F1F] tracking-normal">
-                社保计算器
+                社会保険料計算
               </h1>
             </div>
           </div>
           
           <div className="flex items-center gap-2">
              <span className="hidden md:block text-sm font-medium text-[#444746] bg-[#E0E2E0] px-3 py-1 rounded-full">
-               神奈川 2025
+               神奈川 令和7年
              </span>
           </div>
         </div>
@@ -42,7 +42,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       <footer className="py-8 mt-auto text-center border-t border-[#E0E2E0]">
         <div className="max-w-5xl mx-auto px-4">
            <p className="text-sm text-[#444746] font-medium">
-             &copy; 2025 Kanagawa Social Insurance Calculator
+             &copy; 2025 社会保険料計算ツール
            </p>
         </div>
       </footer>

@@ -1,12 +1,20 @@
 import React from 'react';
-import { Calculator, Info, JapaneseYen, User, Users } from 'lucide-react';
+import { Calculator, Info, JapaneseYen, User, Users, Building, Tractor, Construction as ConstructionIcon } from 'lucide-react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store';
-import { setSalary, setAge, setDependents, calculateResult } from '../store/calculatorSlice';
+import { setSalary, setAge, setDependents, setIndustry, calculateResult } from '../store/calculatorSlice';
+import { IndustryType } from '../types';
+
+const industryOptions: { value: IndustryType; label: string; icon: React.ReactNode }[] = [
+  { value: 'general', label: '一般の事業', icon: <Building size={18} /> },
+  { value: 'agriculture', label: '農林水産等', icon: <Tractor size={18} /> },
+  { value: 'construction', label: '建設の事業', icon: <ConstructionIcon size={18} /> },
+];
+
 
 export const InputForm: React.FC = () => {
   const dispatch = useDispatch();
-  const { salary, age, dependents } = useSelector((state: RootState) => state.calculator);
+  const { salary, age, dependents, industry } = useSelector((state: RootState) => state.calculator);
 
   const handleSalaryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value;
@@ -43,6 +51,11 @@ export const InputForm: React.FC = () => {
       dispatch(setDependents(num));
     }
   };
+  
+  const handleIndustryChange = (selectedIndustry: IndustryType) => {
+    dispatch(setIndustry(selectedIndustry));
+  };
+
 
   const handleCalculate = () => {
     dispatch(calculateResult());
@@ -55,8 +68,8 @@ export const InputForm: React.FC = () => {
     <div className="bg-white p-6 md:p-8 rounded-[24px] shadow-sm border border-[#E0E2E0] relative overflow-hidden">
       
       <div className="mb-8">
-        <h2 className="text-2xl font-normal text-[#1F1F1F] mb-2">计算条件</h2>
-        <p className="text-sm text-[#444746]">请输入您的工资详情以估算社保扣除额。</p>
+        <h2 className="text-2xl font-normal text-[#1F1F1F] mb-2">計算条件</h2>
+        <p className="text-sm text-[#444746]">給与詳細を入力して、社会保険料の控除額を試算します。</p>
       </div>
 
       <div className="space-y-6">
@@ -77,7 +90,7 @@ export const InputForm: React.FC = () => {
             htmlFor="salary"
             className="absolute left-10 top-3.5 z-10 origin-[0] -translate-y-6 scale-75 transform bg-white px-1 text-sm text-[#444746] duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-[#0B57D0]"
           >
-            月薪 (税前)
+            月収 (総支給額)
           </label>
         </div>
 
@@ -98,11 +111,11 @@ export const InputForm: React.FC = () => {
             htmlFor="age"
             className="absolute left-10 top-3.5 z-10 origin-[0] -translate-y-6 scale-75 transform bg-white px-1 text-sm text-[#444746] duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-[#0B57D0]"
           >
-            年龄
+            年齢
           </label>
           {typeof age === 'number' && age >= 40 && (
              <p className="text-xs text-[#0B57D0] mt-1.5 flex items-center gap-1 pl-1">
-               <Info size={14} /> 包含护理保险费
+               <Info size={14} /> 介護保険料を含む
              </p>
           )}
         </div>
@@ -125,9 +138,31 @@ export const InputForm: React.FC = () => {
             htmlFor="dependents"
             className="absolute left-10 top-3.5 z-10 origin-[0] -translate-y-6 scale-75 transform bg-white px-1 text-sm text-[#444746] duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-[#0B57D0]"
           >
-            扶养亲属人数
+            扶養親族の人数
           </label>
         </div>
+
+        {/* Industry Type Selector */}
+        <div className="space-y-2">
+            <label className="text-sm text-[#444746] px-1">事業の種類</label>
+            <div className="grid grid-cols-3 gap-2">
+              {industryOptions.map(option => (
+                <button
+                  key={option.value}
+                  onClick={() => handleIndustryChange(option.value)}
+                  className={`flex flex-col items-center justify-center gap-1 p-3 rounded-xl border-2 transition-all duration-200 ${
+                    industry === option.value
+                      ? 'bg-[#EAF1FF] border-[#0B57D0] text-[#041E49]'
+                      : 'bg-[#F8F9FA] border-transparent text-[#444746] hover:bg-[#F1F3F4]'
+                  }`}
+                >
+                  {option.icon}
+                  <span className="text-xs font-medium">{option.label}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+
 
         {/* Material Filled Button */}
         <button
@@ -136,15 +171,15 @@ export const InputForm: React.FC = () => {
           className="ripple w-full bg-[#0B57D0] hover:bg-[#0B57D0]/90 active:bg-[#0B57D0]/80 text-white text-[16px] font-medium py-4 px-6 rounded-full shadow-md hover:shadow-lg transition-all duration-200 disabled:opacity-50 disabled:shadow-none flex items-center justify-center gap-2 mt-8"
         >
           <Calculator size={20} />
-          开始计算
+          計算する
         </button>
       </div>
 
       <div className="mt-8 bg-[#F8F9FA] rounded-[12px] p-4 flex gap-3 items-start">
         <Info className="w-5 h-5 text-[#444746] mt-0.5 flex-shrink-0" />
         <div className="text-xs text-[#444746] leading-relaxed">
-          <span className="font-medium text-[#1F1F1F] block mb-1">数据基准: 2025年4月</span>
-          社保费率基于神奈川县最新标准。雇用保险费率已更新为令和7年度（2025）最新标准。
+          <span className="font-medium text-[#1F1F1F] block mb-1">データ基準: 令和7年(2025年)4月</span>
+          社会保険料率は神奈川県の最新基準に基づいています。雇用保険料率は令和7年度(2025年)の最新基準に更新済みです。
         </div>
       </div>
     </div>

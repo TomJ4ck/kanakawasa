@@ -6,7 +6,7 @@ const Home: React.FC = () => {
   return (
     <>
       {/* SEO / Meta Simulation */}
-      <title>2025年神奈川县社保计算器</title>
+      <title>令和7年(2025) 神奈川県 社会保険料計算ツール</title>
       
       <div className="grid lg:grid-cols-12 gap-6">
         {/* Left Column: Inputs */}
@@ -24,9 +24,9 @@ const Home: React.FC = () => {
 
       {/* Disclaimer Section */}
       <div className="mt-8 text-center text-xs text-[#747775] animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-        <p className="font-medium">免责声明</p>
+        <p className="font-medium">免責事項</p>
         <p className="mt-1 max-w-2xl mx-auto">
-          此计算器提供的所有数据仅为预估值，基于公开的2025年税率和保险费率表。计算结果不构成财务或法律建议。实际扣除额可能因个人具体情况（如其他收入、特殊扣除等）而异。请以官方发行的工资单为准。
+          この計算ツールが提供するすべてのデータは、公開されている令和7年(2025年)の税率および保険料率表に基づく概算値です。計算結果は、財務上または法律上の助言を構成するものではありません。実際の控除額は、個々の状況（他の収入、特別な控除など）によって異なる場合があります。最終的な金額については、公式の給与明細書をご確認ください。
         </p>
       </div>
     </>
