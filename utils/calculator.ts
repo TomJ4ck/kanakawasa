@@ -56,7 +56,7 @@ const calculateWithholdingTax = (taxableIncome: number, dependents: number): num
 
 export const calculatePay = (
   grossSalary: number, 
-  ageCategory: 'under40' | 'over40', 
+  ageCategory: 'under40' | '40to64' | 'over64', 
   dependents: number,
   industry: IndustryType
 ): CalculationResult => {
@@ -73,7 +73,8 @@ export const calculatePay = (
   const grade = row.grade;
 
   // 2. Calculate Health Insurance
-  const healthRate = ageCategory === 'over40' ? RATES.HEALTH_RATE_OVER_40 : RATES.HEALTH_RATE_UNDER_40;
+  // 介护保险只在40-64岁之间缴纳，65岁及以上不缴纳
+  const healthRate = ageCategory === '40to64' ? RATES.HEALTH_RATE_OVER_40 : RATES.HEALTH_RATE_UNDER_40;
   const healthInsuranceRaw = standardRemuneration * healthRate;
   const healthInsurance = Math.floor(healthInsuranceRaw);
 

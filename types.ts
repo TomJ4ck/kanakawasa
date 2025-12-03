@@ -16,7 +16,7 @@ export interface CalculationResult {
   socialInsuranceTotal: number;
   incomeTaxEstimate: number;
   takeHomePay: number;
-  ageCategory: 'under40' | 'over40';
+  ageCategory: 'under40' | '40to64' | 'over64';
   grade: number;
   dependents: number;
   industry: IndustryType;

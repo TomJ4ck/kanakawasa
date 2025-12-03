@@ -90,7 +90,11 @@ export const ResultsCard: React.FC = () => {
                 <div>
                   <div className="font-medium text-[#1F1F1F]">健康保険料</div>
                   <div className="text-xs text-[#444746]">
-                     {result.ageCategory === 'over40' ? '介護保険料含む (40-64歳)' : '基本料率 (<40歳)'}
+                     {result.ageCategory === '40to64' 
+                       ? '介護保険料含む (40-64歳)' 
+                       : result.ageCategory === 'over64' 
+                       ? '基本料率 (65歳以上・介護保険料免除)' 
+                       : '基本料率 (<40歳)'}
                   </div>
                 </div>
               </div>

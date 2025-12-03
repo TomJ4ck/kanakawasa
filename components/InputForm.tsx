@@ -113,9 +113,14 @@ export const InputForm: React.FC = () => {
           >
             年齢
           </label>
-          {typeof age === 'number' && age >= 40 && (
+          {typeof age === 'number' && age >= 40 && age < 65 && (
              <p className="text-xs text-[#0B57D0] mt-1.5 flex items-center gap-1 pl-1">
                <Info size={14} /> 介護保険料を含む
+             </p>
+          )}
+          {typeof age === 'number' && age >= 65 && (
+             <p className="text-xs text-[#444746] mt-1.5 flex items-center gap-1 pl-1">
+               <Info size={14} /> 65歳以上は介護保険料が免除されます
              </p>
           )}
         </div>
