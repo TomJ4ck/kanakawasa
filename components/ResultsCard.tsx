@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
 import { useSelector } from 'react-redux';
@@ -5,10 +7,7 @@ import { RootState } from '../store';
 import { Wallet, HeartPulse, Building2, Briefcase, Receipt, ArrowDownCircle } from 'lucide-react';
 import { EMPLOYMENT_RATES } from '../constants';
 import { IndustryType } from '../types';
-
-const formatYen = (num: number) => {
-  return new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY', maximumFractionDigits: 0 }).format(num);
-};
+import { formatYen } from '../utils/format';
 
 const industryDisplayNames: Record<IndustryType, string> = {
     general: '一般の事業',

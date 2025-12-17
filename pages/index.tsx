@@ -1,12 +1,15 @@
 import React from 'react';
+import Head from 'next/head';
 import { InputForm } from '../components/InputForm';
 import { ResultsCard } from '../components/ResultsCard';
 
-const Home: React.FC = () => {
+export default function Home() {
   return (
     <>
-      {/* SEO / Meta Simulation */}
-      <title>令和7年(2025) 神奈川県 社会保険料計算ツール</title>
+      <Head>
+        <title>令和7年(2025) 神奈川県 社会保険料計算ツール</title>
+        <meta name="description" content="神奈川県の社会保険料を計算するツール" />
+      </Head>
       
       <div className="grid lg:grid-cols-12 gap-6">
         {/* Left Column: Inputs */}
@@ -31,6 +34,4 @@ const Home: React.FC = () => {
       </div>
     </>
   );
-};
-
-export default Home;
+}

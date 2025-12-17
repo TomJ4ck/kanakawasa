@@ -1,16 +1,10 @@
-
-import React from 'react';
+import type { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
 import { store } from '../store';
 import { Layout } from '../components/Layout';
+import '../styles/globals.css';
 
-// Mimicking Next.js AppProps interface for type safety
-interface AppProps {
-  Component: React.ComponentType<any>;
-  pageProps: any;
-}
-
-function MyApp({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
       <Layout>
@@ -19,5 +13,3 @@ function MyApp({ Component, pageProps }: AppProps) {
     </Provider>
   );
 }
-
-export default MyApp;

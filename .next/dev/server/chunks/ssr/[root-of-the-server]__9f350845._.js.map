@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 40, "column": 0}, "map": {"version":3,"sources":["file:///C:/code/%E7%A8%BC%E5%83%8D/kanakawasa/pages/_document.tsx"],"sourcesContent":["import { Html, Head, Main, NextScript } from 'next/document';\r\n\r\nexport default function Document() {\r\n  return (\r\n    <Html lang=\"ja\">\r\n      <Head>\r\n        {/* Material Design Fonts */}\r\n        <link\r\n          href=\"https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap\"\r\n          rel=\"stylesheet\"\r\n        />\r\n      </Head>\r\n      <body>\r\n        <Main />\r\n        <NextScript />\r\n      </body>\r\n    </Html>\r\n  );\r\n}\r\n\r\n"],"names":[],"mappings":";;;;;AAAA;;;AAEe,SAAS;IACtB,qBACE,qKAAC,iIAAI;QAAC,MAAK;;0BACT,qKAAC,iIAAI;0BAEH,cAAA,qKAAC;oBACC,MAAK;oBACL,KAAI;;;;;;;;;;;0BAGR,qKAAC;;kCACC,qKAAC,iIAAI;;;;;kCACL,qKAAC,uIAAU;;;;;;;;;;;;;;;;;AAInB"}}]
+}

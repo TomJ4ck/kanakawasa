@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { Calculator, Info, JapaneseYen, User, Users, Building, Tractor, Construction as ConstructionIcon } from 'lucide-react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,7 +16,7 @@ const industryOptions: { value: IndustryType; label: string; icon: React.ReactNo
 
 export const InputForm: React.FC = () => {
   const dispatch = useDispatch();
-  const { salary, age, dependents, industry } = useSelector((state: RootState) => state.calculator);
+  const { salary, age, dependents, industry, loading, error } = useSelector((state: RootState) => state.calculator);
 
   const handleSalaryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value;
@@ -57,11 +59,14 @@ export const InputForm: React.FC = () => {
   };
 
 
-  const handleCalculate = () => {
-    dispatch(calculateResult());
-    setTimeout(() => {
-      document.getElementById('result-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 100);
+  const handleCalculate = async () => {
+    const result = await dispatch(calculateResult());
+    // 如果成功，滚动到结果区域
+    if (calculateResult.fulfilled.match(result)) {
+      setTimeout(() => {
+        document.getElementById('result-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
   };
 
   return (
@@ -172,12 +177,19 @@ export const InputForm: React.FC = () => {
         {/* Material Filled Button */}
         <button
           onClick={handleCalculate}
-          disabled={!salary || age === ''}
+          disabled={!salary || age === '' || loading}
           className="ripple w-full bg-[#0B57D0] hover:bg-[#0B57D0]/90 active:bg-[#0B57D0]/80 text-white text-[16px] font-medium py-4 px-6 rounded-full shadow-md hover:shadow-lg transition-all duration-200 disabled:opacity-50 disabled:shadow-none flex items-center justify-center gap-2 mt-8"
         >
           <Calculator size={20} />
-          計算する
+          {loading ? '計算中...' : '計算する'}
         </button>
+        
+        {/* Error Message */}
+        {error && (
+          <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">
+            {error}
+          </div>
+        )}
       </div>
 
       <div className="mt-8 bg-[#F8F9FA] rounded-[12px] p-4 flex gap-3 items-start">
