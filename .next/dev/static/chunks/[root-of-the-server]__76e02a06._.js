@@ -658,19 +658,12 @@ const calculateResult = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node
         const healthInsurance = employeeCost.healthCostWithNoCare + employeeCost.careCost;
         // 计算社会保险总额
         const socialInsuranceTotal = healthInsurance + employeeCost.pension + employeeCost.employmentInsurance;
-        // 确定年龄类别
-        let ageCategory;
-        if (age < 40) {
-            ageCategory = 'under40';
-        } else if (age >= 40 && age < 65) {
-            ageCategory = '40to64';
-        } else {
-            ageCategory = 'over64';
-        }
+        // 使用后端返回的 ageCategory，如果没有则根据年龄计算（临时方案，建议后端返回）
+        const ageCategory = apiResult.ageCategory || (age < 40 ? 'under40' : age >= 40 && age < 65 ? '40to64' : 'over64');
         // 构建 CalculationResult
         const result = {
             grossSalary: salary,
-            standardRemuneration: salary,
+            standardRemuneration: apiResult.standardRemuneration || salary,
             healthInsurance: Math.round(healthInsurance),
             welfarePension: Math.round(employeeCost.pension),
             employmentInsurance: Math.round(employeeCost.employmentInsurance),
@@ -678,7 +671,7 @@ const calculateResult = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node
             incomeTaxEstimate: Math.round(employeeCost.withholdingTax),
             takeHomePay: Math.round(salary - socialInsuranceTotal - employeeCost.withholdingTax),
             ageCategory,
-            grade: 0,
+            grade: apiResult.grade || 0,
             dependents,
             industry
         };
@@ -739,10 +732,17 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 
 __turbopack_context__.s([
     "store",
-    ()=>store
+    ()=>store,
+    "useAppDispatch",
+    ()=>useAppDispatch,
+    "useAppSelector",
+    ()=>useAppSelector
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/@reduxjs/toolkit/dist/redux-toolkit.modern.mjs [client] (ecmascript) <locals>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-redux/dist/react-redux.mjs [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$store$2f$calculatorSlice$2e$ts__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/store/calculatorSlice.ts [client] (ecmascript)");
+var _s = __turbopack_context__.k.signature();
+;
 ;
 ;
 const store = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["configureStore"])({
@@ -750,6 +750,16 @@ const store = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2
         calculator: __TURBOPACK__imported__module__$5b$project$5d2f$store$2f$calculatorSlice$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["default"]
     }
 });
+const useAppDispatch = ()=>{
+    _s();
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["useDispatch"])();
+};
+_s(useAppDispatch, "jI3HA1r1Cumjdbu14H7G+TUj798=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["useDispatch"]
+    ];
+});
+const useAppSelector = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["useSelector"];
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }

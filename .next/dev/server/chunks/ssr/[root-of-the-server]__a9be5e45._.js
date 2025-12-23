@@ -229,19 +229,12 @@ const calculateResult = (0, __TURBOPACK__imported__module__$5b$externals$5d2f40$
         const healthInsurance = employeeCost.healthCostWithNoCare + employeeCost.careCost;
         // 计算社会保险总额
         const socialInsuranceTotal = healthInsurance + employeeCost.pension + employeeCost.employmentInsurance;
-        // 确定年龄类别
-        let ageCategory;
-        if (age < 40) {
-            ageCategory = 'under40';
-        } else if (age >= 40 && age < 65) {
-            ageCategory = '40to64';
-        } else {
-            ageCategory = 'over64';
-        }
+        // 使用后端返回的 ageCategory，如果没有则根据年龄计算（临时方案，建议后端返回）
+        const ageCategory = apiResult.ageCategory || (age < 40 ? 'under40' : age >= 40 && age < 65 ? '40to64' : 'over64');
         // 构建 CalculationResult
         const result = {
             grossSalary: salary,
-            standardRemuneration: salary,
+            standardRemuneration: apiResult.standardRemuneration || salary,
             healthInsurance: Math.round(healthInsurance),
             welfarePension: Math.round(employeeCost.pension),
             employmentInsurance: Math.round(employeeCost.employmentInsurance),
@@ -249,7 +242,7 @@ const calculateResult = (0, __TURBOPACK__imported__module__$5b$externals$5d2f40$
             incomeTaxEstimate: Math.round(employeeCost.withholdingTax),
             takeHomePay: Math.round(salary - socialInsuranceTotal - employeeCost.withholdingTax),
             ageCategory,
-            grade: 0,
+            grade: apiResult.grade || 0,
             dependents,
             industry
         };
@@ -310,15 +303,22 @@ return __turbopack_context__.a(async (__turbopack_handle_async_dependencies__, _
 
 __turbopack_context__.s([
     "store",
-    ()=>store
+    ()=>store,
+    "useAppDispatch",
+    ()=>useAppDispatch,
+    "useAppSelector",
+    ()=>useAppSelector
 ]);
 var __TURBOPACK__imported__module__$5b$externals$5d2f40$reduxjs$2f$toolkit__$5b$external$5d$__$2840$reduxjs$2f$toolkit$2c$__esm_import$29$__ = __turbopack_context__.i("[externals]/@reduxjs/toolkit [external] (@reduxjs/toolkit, esm_import)");
+var __TURBOPACK__imported__module__$5b$externals$5d2f$react$2d$redux__$5b$external$5d$__$28$react$2d$redux$2c$__esm_import$29$__ = __turbopack_context__.i("[externals]/react-redux [external] (react-redux, esm_import)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$store$2f$calculatorSlice$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/store/calculatorSlice.ts [ssr] (ecmascript)");
 var __turbopack_async_dependencies__ = __turbopack_handle_async_dependencies__([
     __TURBOPACK__imported__module__$5b$externals$5d2f40$reduxjs$2f$toolkit__$5b$external$5d$__$2840$reduxjs$2f$toolkit$2c$__esm_import$29$__,
+    __TURBOPACK__imported__module__$5b$externals$5d2f$react$2d$redux__$5b$external$5d$__$28$react$2d$redux$2c$__esm_import$29$__,
     __TURBOPACK__imported__module__$5b$project$5d2f$store$2f$calculatorSlice$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__
 ]);
-[__TURBOPACK__imported__module__$5b$externals$5d2f40$reduxjs$2f$toolkit__$5b$external$5d$__$2840$reduxjs$2f$toolkit$2c$__esm_import$29$__, __TURBOPACK__imported__module__$5b$project$5d2f$store$2f$calculatorSlice$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__] = __turbopack_async_dependencies__.then ? (await __turbopack_async_dependencies__)() : __turbopack_async_dependencies__;
+[__TURBOPACK__imported__module__$5b$externals$5d2f40$reduxjs$2f$toolkit__$5b$external$5d$__$2840$reduxjs$2f$toolkit$2c$__esm_import$29$__, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2d$redux__$5b$external$5d$__$28$react$2d$redux$2c$__esm_import$29$__, __TURBOPACK__imported__module__$5b$project$5d2f$store$2f$calculatorSlice$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__] = __turbopack_async_dependencies__.then ? (await __turbopack_async_dependencies__)() : __turbopack_async_dependencies__;
+;
 ;
 ;
 const store = (0, __TURBOPACK__imported__module__$5b$externals$5d2f40$reduxjs$2f$toolkit__$5b$external$5d$__$2840$reduxjs$2f$toolkit$2c$__esm_import$29$__["configureStore"])({
@@ -326,6 +326,8 @@ const store = (0, __TURBOPACK__imported__module__$5b$externals$5d2f40$reduxjs$2f
         calculator: __TURBOPACK__imported__module__$5b$project$5d2f$store$2f$calculatorSlice$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__["default"]
     }
 });
+const useAppDispatch = ()=>(0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2d$redux__$5b$external$5d$__$28$react$2d$redux$2c$__esm_import$29$__["useDispatch"])();
+const useAppSelector = __TURBOPACK__imported__module__$5b$externals$5d2f$react$2d$redux__$5b$external$5d$__$28$react$2d$redux$2c$__esm_import$29$__["useSelector"];
 __turbopack_async_result__();
 } catch(e) { __turbopack_async_result__(e); } }, false);}),
 "[project]/components/Layout.tsx [ssr] (ecmascript)", ((__turbopack_context__) => {

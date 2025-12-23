@@ -35,4 +35,7 @@ export interface SocialInsuranceCost {
 export interface SocialInsuranceDTO {
   employeeCost: SocialInsuranceCost; // 员工需要支付的金额
   employerCost: SocialInsuranceCost; // 公司需要支付的金额
+  ageCategory?: 'under40' | '40to64' | 'over64'; // 年龄类别（如果后端返回）
+  standardRemuneration?: number; // 标准报酬月额（如果后端返回）
+  grade?: number; // 等级（如果后端返回）
 }

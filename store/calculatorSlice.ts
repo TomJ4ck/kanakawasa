@@ -48,20 +48,15 @@ export const calculateResult = createAsyncThunk(
         employeeCost.pension + 
         employeeCost.employmentInsurance;
 
-      // 确定年龄类别
-      let ageCategory: 'under40' | '40to64' | 'over64';
-      if (age < 40) {
-        ageCategory = 'under40';
-      } else if (age >= 40 && age < 65) {
-        ageCategory = '40to64';
-      } else {
-        ageCategory = 'over64';
-      }
+      // 使用后端返回的 ageCategory，如果没有则根据年龄计算（临时方案，建议后端返回）
+      const ageCategory = apiResult.ageCategory || (
+        age < 40 ? 'under40' : (age >= 40 && age < 65 ? '40to64' : 'over64')
+      );
 
       // 构建 CalculationResult
       const result: CalculationResult = {
         grossSalary: salary,
-        standardRemuneration: salary, // API 可能不返回此值，使用月薪作为默认值
+        standardRemuneration: apiResult.standardRemuneration || salary, // 使用后端返回的值，如果没有则使用月薪
         healthInsurance: Math.round(healthInsurance),
         welfarePension: Math.round(employeeCost.pension),
         employmentInsurance: Math.round(employeeCost.employmentInsurance),
@@ -69,7 +64,7 @@ export const calculateResult = createAsyncThunk(
         incomeTaxEstimate: Math.round(employeeCost.withholdingTax),
         takeHomePay: Math.round(salary - socialInsuranceTotal - employeeCost.withholdingTax),
         ageCategory,
-        grade: 0, // API 不返回等级，设为 0
+        grade: apiResult.grade || 0, // 使用后端返回的等级，如果没有则设为 0
         dependents,
         industry,
       };

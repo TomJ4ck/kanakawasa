@@ -2,8 +2,7 @@
 
 import React from 'react';
 import { Calculator, Info, JapaneseYen, User, Users, Building, Tractor, Construction as ConstructionIcon } from 'lucide-react';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../store';
+import { useAppDispatch, useAppSelector } from '../store';
 import { setSalary, setAge, setDependents, setIndustry, calculateResult } from '../store/calculatorSlice';
 import { IndustryType } from '../types';
 
@@ -15,8 +14,8 @@ const industryOptions: { value: IndustryType; label: string; icon: React.ReactNo
 
 
 export const InputForm: React.FC = () => {
-  const dispatch = useDispatch();
-  const { salary, age, dependents, industry, loading, error } = useSelector((state: RootState) => state.calculator);
+  const dispatch = useAppDispatch();
+  const { salary, age, dependents, industry, loading, error } = useAppSelector((state) => state.calculator);
 
   const handleSalaryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value;
@@ -60,12 +59,17 @@ export const InputForm: React.FC = () => {
 
 
   const handleCalculate = async () => {
-    const result = await dispatch(calculateResult());
-    // 如果成功，滚动到结果区域
-    if (calculateResult.fulfilled.match(result)) {
+    try {
+      // 使用 unwrap() 方法获取 Promise 的结果，这是 Redux Toolkit 推荐的方式
+      // unwrap() 会在 rejected 时抛出错误，在 fulfilled 时返回 payload
+      await dispatch(calculateResult()).unwrap();
+      // 如果成功，滚动到结果区域
       setTimeout(() => {
         document.getElementById('result-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 100);
+    } catch (error) {
+      // 错误已经在 Redux store 中处理，这里不需要额外处理
+      // 如果需要，可以在这里添加额外的错误处理逻辑
     }
   };
 
@@ -118,6 +122,7 @@ export const InputForm: React.FC = () => {
           >
             年齢
           </label>
+          {/* 年龄提示信息 - 基于输入的年龄显示，仅用于用户提示 */}
           {typeof age === 'number' && age >= 40 && age < 65 && (
              <p className="text-xs text-[#0B57D0] mt-1.5 flex items-center gap-1 pl-1">
                <Info size={14} /> 介護保険料を含む

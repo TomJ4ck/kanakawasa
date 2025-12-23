@@ -727,6 +727,43 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
 }),
+"[project]/store/index.ts [client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "store",
+    ()=>store,
+    "useAppDispatch",
+    ()=>useAppDispatch,
+    "useAppSelector",
+    ()=>useAppSelector
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/@reduxjs/toolkit/dist/redux-toolkit.modern.mjs [client] (ecmascript) <locals>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-redux/dist/react-redux.mjs [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$store$2f$calculatorSlice$2e$ts__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/store/calculatorSlice.ts [client] (ecmascript)");
+var _s = __turbopack_context__.k.signature();
+;
+;
+;
+const store = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["configureStore"])({
+    reducer: {
+        calculator: __TURBOPACK__imported__module__$5b$project$5d2f$store$2f$calculatorSlice$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["default"]
+    }
+});
+const useAppDispatch = ()=>{
+    _s();
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["useDispatch"])();
+};
+_s(useAppDispatch, "jI3HA1r1Cumjdbu14H7G+TUj798=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["useDispatch"]
+    ];
+});
+const useAppSelector = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["useSelector"];
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
 "[project]/components/InputForm.tsx [client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
@@ -743,10 +780,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$building$2e$js__$5b$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Building$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/building.js [client] (ecmascript) <export default as Building>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$tractor$2e$js__$5b$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Tractor$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/tractor.js [client] (ecmascript) <export default as Tractor>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$construction$2e$js__$5b$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Construction$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/construction.js [client] (ecmascript) <export default as Construction>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$store$2f$index$2e$ts__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/store/index.ts [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$store$2f$calculatorSlice$2e$ts__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/store/calculatorSlice.ts [client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 'use client';
+;
 ;
 ;
 const industryOptions = [
@@ -786,10 +825,10 @@ const industryOptions = [
 ];
 const InputForm = ()=>{
     _s();
-    const dispatch = useDispatch();
-    const { salary, age, dependents, industry, loading, error } = useSelector({
-        "InputForm.useSelector": (state)=>state.calculator
-    }["InputForm.useSelector"]);
+    const dispatch = (0, __TURBOPACK__imported__module__$5b$project$5d2f$store$2f$index$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["useAppDispatch"])();
+    const { salary, age, dependents, industry, loading, error } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$store$2f$index$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["useAppSelector"])({
+        "InputForm.useAppSelector": (state)=>state.calculator
+    }["InputForm.useAppSelector"]);
     const handleSalaryChange = (e)=>{
         const val = e.target.value;
         if (val === '') {
@@ -827,15 +866,20 @@ const InputForm = ()=>{
         dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$store$2f$calculatorSlice$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["setIndustry"])(selectedIndustry));
     };
     const handleCalculate = async ()=>{
-        const result = await dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$store$2f$calculatorSlice$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["calculateResult"])());
-        // 如果成功，滚动到结果区域
-        if (__TURBOPACK__imported__module__$5b$project$5d2f$store$2f$calculatorSlice$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["calculateResult"].fulfilled.match(result)) {
+        try {
+            // 使用 unwrap() 方法获取 Promise 的结果，这是 Redux Toolkit 推荐的方式
+            // unwrap() 会在 rejected 时抛出错误，在 fulfilled 时返回 payload
+            await dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$store$2f$calculatorSlice$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["calculateResult"])()).unwrap();
+            // 如果成功，滚动到结果区域
             setTimeout(()=>{
                 document.getElementById('result-section')?.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
             }, 100);
+        } catch (error) {
+        // 错误已经在 Redux store 中处理，这里不需要额外处理
+        // 如果需要，可以在这里添加额外的错误处理逻辑
         }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -849,7 +893,7 @@ const InputForm = ()=>{
                         children: "計算条件"
                     }, void 0, false, {
                         fileName: "[project]/components/InputForm.tsx",
-                        lineNumber: 75,
+                        lineNumber: 80,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -857,13 +901,13 @@ const InputForm = ()=>{
                         children: "給与詳細を入力して、社会保険料の控除額を試算します。"
                     }, void 0, false, {
                         fileName: "[project]/components/InputForm.tsx",
-                        lineNumber: 76,
+                        lineNumber: 81,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/InputForm.tsx",
-                lineNumber: 74,
+                lineNumber: 79,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -878,12 +922,12 @@ const InputForm = ()=>{
                                     size: 20
                                 }, void 0, false, {
                                     fileName: "[project]/components/InputForm.tsx",
-                                    lineNumber: 83,
+                                    lineNumber: 88,
                                     columnNumber: 14
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/components/InputForm.tsx",
-                                lineNumber: 82,
+                                lineNumber: 87,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -895,7 +939,7 @@ const InputForm = ()=>{
                                 className: "peer block w-full rounded-[4px] border border-[#747775] bg-transparent pl-10 pr-4 py-3.5 text-[16px] text-[#1F1F1F] outline-none transition-colors focus:border-[#0B57D0] focus:ring-1 focus:ring-[#0B57D0]"
                             }, void 0, false, {
                                 fileName: "[project]/components/InputForm.tsx",
-                                lineNumber: 85,
+                                lineNumber: 90,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -904,13 +948,13 @@ const InputForm = ()=>{
                                 children: "月収 (総支給額)"
                             }, void 0, false, {
                                 fileName: "[project]/components/InputForm.tsx",
-                                lineNumber: 93,
+                                lineNumber: 98,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/InputForm.tsx",
-                        lineNumber: 81,
+                        lineNumber: 86,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -922,12 +966,12 @@ const InputForm = ()=>{
                                     size: 20
                                 }, void 0, false, {
                                     fileName: "[project]/components/InputForm.tsx",
-                                    lineNumber: 104,
+                                    lineNumber: 109,
                                     columnNumber: 14
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/components/InputForm.tsx",
-                                lineNumber: 103,
+                                lineNumber: 108,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -939,7 +983,7 @@ const InputForm = ()=>{
                                 className: "peer block w-full rounded-[4px] border border-[#747775] bg-transparent pl-10 pr-4 py-3.5 text-[16px] text-[#1F1F1F] outline-none transition-colors focus:border-[#0B57D0] focus:ring-1 focus:ring-[#0B57D0]"
                             }, void 0, false, {
                                 fileName: "[project]/components/InputForm.tsx",
-                                lineNumber: 106,
+                                lineNumber: 111,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -948,7 +992,7 @@ const InputForm = ()=>{
                                 children: "年齢"
                             }, void 0, false, {
                                 fileName: "[project]/components/InputForm.tsx",
-                                lineNumber: 114,
+                                lineNumber: 119,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             typeof age === 'number' && age >= 40 && age < 65 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -958,14 +1002,14 @@ const InputForm = ()=>{
                                         size: 14
                                     }, void 0, false, {
                                         fileName: "[project]/components/InputForm.tsx",
-                                        lineNumber: 123,
+                                        lineNumber: 128,
                                         columnNumber: 16
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     " 介護保険料を含む"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/InputForm.tsx",
-                                lineNumber: 122,
+                                lineNumber: 127,
                                 columnNumber: 14
                             }, ("TURBOPACK compile-time value", void 0)),
                             typeof age === 'number' && age >= 65 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -975,20 +1019,20 @@ const InputForm = ()=>{
                                         size: 14
                                     }, void 0, false, {
                                         fileName: "[project]/components/InputForm.tsx",
-                                        lineNumber: 128,
+                                        lineNumber: 133,
                                         columnNumber: 16
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     " 65歳以上は介護保険料が免除されます"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/InputForm.tsx",
-                                lineNumber: 127,
+                                lineNumber: 132,
                                 columnNumber: 14
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/InputForm.tsx",
-                        lineNumber: 102,
+                        lineNumber: 107,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1000,12 +1044,12 @@ const InputForm = ()=>{
                                     size: 20
                                 }, void 0, false, {
                                     fileName: "[project]/components/InputForm.tsx",
-                                    lineNumber: 136,
+                                    lineNumber: 141,
                                     columnNumber: 14
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/components/InputForm.tsx",
-                                lineNumber: 135,
+                                lineNumber: 140,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1018,7 +1062,7 @@ const InputForm = ()=>{
                                 className: "peer block w-full rounded-[4px] border border-[#747775] bg-transparent pl-10 pr-4 py-3.5 text-[16px] text-[#1F1F1F] outline-none transition-colors focus:border-[#0B57D0] focus:ring-1 focus:ring-[#0B57D0]"
                             }, void 0, false, {
                                 fileName: "[project]/components/InputForm.tsx",
-                                lineNumber: 138,
+                                lineNumber: 143,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -1027,13 +1071,13 @@ const InputForm = ()=>{
                                 children: "扶養親族の人数"
                             }, void 0, false, {
                                 fileName: "[project]/components/InputForm.tsx",
-                                lineNumber: 147,
+                                lineNumber: 152,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/InputForm.tsx",
-                        lineNumber: 134,
+                        lineNumber: 139,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1044,7 +1088,7 @@ const InputForm = ()=>{
                                 children: "事業の種類"
                             }, void 0, false, {
                                 fileName: "[project]/components/InputForm.tsx",
-                                lineNumber: 157,
+                                lineNumber: 162,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1059,24 +1103,24 @@ const InputForm = ()=>{
                                                 children: option.label
                                             }, void 0, false, {
                                                 fileName: "[project]/components/InputForm.tsx",
-                                                lineNumber: 170,
+                                                lineNumber: 175,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, option.value, true, {
                                         fileName: "[project]/components/InputForm.tsx",
-                                        lineNumber: 160,
+                                        lineNumber: 165,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0)))
                             }, void 0, false, {
                                 fileName: "[project]/components/InputForm.tsx",
-                                lineNumber: 158,
+                                lineNumber: 163,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/InputForm.tsx",
-                        lineNumber: 156,
+                        lineNumber: 161,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1088,14 +1132,14 @@ const InputForm = ()=>{
                                 size: 20
                             }, void 0, false, {
                                 fileName: "[project]/components/InputForm.tsx",
-                                lineNumber: 183,
+                                lineNumber: 188,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             loading ? '計算中...' : '計算する'
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/InputForm.tsx",
-                        lineNumber: 178,
+                        lineNumber: 183,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1103,13 +1147,13 @@ const InputForm = ()=>{
                         children: error
                     }, void 0, false, {
                         fileName: "[project]/components/InputForm.tsx",
-                        lineNumber: 189,
+                        lineNumber: 194,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/InputForm.tsx",
-                lineNumber: 79,
+                lineNumber: 84,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1119,7 +1163,7 @@ const InputForm = ()=>{
                         className: "w-5 h-5 text-[#444746] mt-0.5 flex-shrink-0"
                     }, void 0, false, {
                         fileName: "[project]/components/InputForm.tsx",
-                        lineNumber: 196,
+                        lineNumber: 201,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1130,30 +1174,35 @@ const InputForm = ()=>{
                                 children: "データ基準: 令和7年(2025年)4月"
                             }, void 0, false, {
                                 fileName: "[project]/components/InputForm.tsx",
-                                lineNumber: 198,
+                                lineNumber: 203,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             "社会保険料率は神奈川県の最新基準に基づいています。雇用保険料率は令和7年度(2025年)の最新基準に更新済みです。"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/InputForm.tsx",
-                        lineNumber: 197,
+                        lineNumber: 202,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/InputForm.tsx",
-                lineNumber: 195,
+                lineNumber: 200,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/components/InputForm.tsx",
-        lineNumber: 72,
+        lineNumber: 77,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(InputForm, "Qyo2E1gj0tHl1NCaJg4xGwAjXMA=", true);
+_s(InputForm, "3tl0o+sDCvhvl+SOrwn/FgGZTQs=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$store$2f$index$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["useAppDispatch"],
+        __TURBOPACK__imported__module__$5b$project$5d2f$store$2f$index$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["useAppSelector"]
+    ];
+});
 _c = InputForm;
 var _c;
 __turbopack_context__.k.register(_c, "InputForm");
@@ -1210,7 +1259,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$recharts$2f$
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$recharts$2f$es6$2f$component$2f$Cell$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/recharts/es6/component/Cell.js [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$recharts$2f$es6$2f$component$2f$ResponsiveContainer$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/recharts/es6/component/ResponsiveContainer.js [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$recharts$2f$es6$2f$component$2f$Tooltip$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/recharts/es6/component/Tooltip.js [client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-redux/dist/react-redux.mjs [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$store$2f$index$2e$ts__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/store/index.ts [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$wallet$2e$js__$5b$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Wallet$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/wallet.js [client] (ecmascript) <export default as Wallet>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$heart$2d$pulse$2e$js__$5b$client$5d$__$28$ecmascript$29$__$3c$export__default__as__HeartPulse$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/heart-pulse.js [client] (ecmascript) <export default as HeartPulse>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$building$2d$2$2e$js__$5b$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Building2$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/building-2.js [client] (ecmascript) <export default as Building2>");
@@ -1233,9 +1282,9 @@ const industryDisplayNames = {
 };
 const ResultsCard = ()=>{
     _s();
-    const result = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["useSelector"])({
-        "ResultsCard.useSelector[result]": (state)=>state.calculator.result
-    }["ResultsCard.useSelector[result]"]);
+    const result = (0, __TURBOPACK__imported__module__$5b$project$5d2f$store$2f$index$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["useAppSelector"])({
+        "ResultsCard.useAppSelector[result]": (state)=>state.calculator.result
+    }["ResultsCard.useAppSelector[result]"]);
     if (!result) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "h-full min-h-[400px] flex flex-col items-center justify-center bg-white rounded-[24px] border border-[#E0E2E0] text-[#444746] p-8 text-center animate-fade-in-up delay-100",
@@ -1246,12 +1295,12 @@ const ResultsCard = ()=>{
                         className: "w-8 h-8 text-[#0B57D0]"
                     }, void 0, false, {
                         fileName: "[project]/components/ResultsCard.tsx",
-                        lineNumber: 25,
+                        lineNumber: 24,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/components/ResultsCard.tsx",
-                    lineNumber: 24,
+                    lineNumber: 23,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1259,7 +1308,7 @@ const ResultsCard = ()=>{
                     children: "計算待機中"
                 }, void 0, false, {
                     fileName: "[project]/components/ResultsCard.tsx",
-                    lineNumber: 27,
+                    lineNumber: 26,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1267,13 +1316,13 @@ const ResultsCard = ()=>{
                     children: "月収、年齢、事業の種類を入力して計算ボタンを押してください。"
                 }, void 0, false, {
                     fileName: "[project]/components/ResultsCard.tsx",
-                    lineNumber: 28,
+                    lineNumber: 27,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/components/ResultsCard.tsx",
-            lineNumber: 23,
+            lineNumber: 22,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0));
     }
@@ -1327,7 +1376,7 @@ const ResultsCard = ()=>{
                             children: "計算結果"
                         }, void 0, false, {
                             fileName: "[project]/components/ResultsCard.tsx",
-                            lineNumber: 60,
+                            lineNumber: 59,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1341,18 +1390,18 @@ const ResultsCard = ()=>{
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/ResultsCard.tsx",
-                            lineNumber: 61,
+                            lineNumber: 60,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/ResultsCard.tsx",
-                    lineNumber: 59,
+                    lineNumber: 58,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/components/ResultsCard.tsx",
-                lineNumber: 58,
+                lineNumber: 57,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1368,7 +1417,7 @@ const ResultsCard = ()=>{
                                         children: "手取り額 (概算)"
                                     }, void 0, false, {
                                         fileName: "[project]/components/ResultsCard.tsx",
-                                        lineNumber: 69,
+                                        lineNumber: 68,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1376,13 +1425,13 @@ const ResultsCard = ()=>{
                                         children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$utils$2f$format$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["formatYen"])(result.takeHomePay)
                                     }, void 0, false, {
                                         fileName: "[project]/components/ResultsCard.tsx",
-                                        lineNumber: 70,
+                                        lineNumber: 69,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/ResultsCard.tsx",
-                                lineNumber: 68,
+                                lineNumber: 67,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1394,13 +1443,13 @@ const ResultsCard = ()=>{
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/ResultsCard.tsx",
-                                lineNumber: 72,
+                                lineNumber: 71,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/ResultsCard.tsx",
-                        lineNumber: 67,
+                        lineNumber: 66,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1414,7 +1463,7 @@ const ResultsCard = ()=>{
                                         children: "控除の内訳"
                                     }, void 0, false, {
                                         fileName: "[project]/components/ResultsCard.tsx",
-                                        lineNumber: 81,
+                                        lineNumber: 80,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1429,12 +1478,12 @@ const ResultsCard = ()=>{
                                                             size: 20
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/ResultsCard.tsx",
-                                                            lineNumber: 87,
+                                                            lineNumber: 86,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/ResultsCard.tsx",
-                                                        lineNumber: 86,
+                                                        lineNumber: 85,
                                                         columnNumber: 17
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1444,7 +1493,7 @@ const ResultsCard = ()=>{
                                                                 children: "健康保険料"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/ResultsCard.tsx",
-                                                                lineNumber: 90,
+                                                                lineNumber: 89,
                                                                 columnNumber: 19
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1452,19 +1501,19 @@ const ResultsCard = ()=>{
                                                                 children: result.ageCategory === '40to64' ? '介護保険料含む (40-64歳)' : result.ageCategory === 'over64' ? '基本料率 (65歳以上・介護保険料免除)' : '基本料率 (<40歳)'
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/ResultsCard.tsx",
-                                                                lineNumber: 91,
+                                                                lineNumber: 90,
                                                                 columnNumber: 19
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/ResultsCard.tsx",
-                                                        lineNumber: 89,
+                                                        lineNumber: 88,
                                                         columnNumber: 17
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/ResultsCard.tsx",
-                                                lineNumber: 85,
+                                                lineNumber: 84,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1475,13 +1524,13 @@ const ResultsCard = ()=>{
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/ResultsCard.tsx",
-                                                lineNumber: 100,
+                                                lineNumber: 99,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/ResultsCard.tsx",
-                                        lineNumber: 84,
+                                        lineNumber: 83,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1496,12 +1545,12 @@ const ResultsCard = ()=>{
                                                             size: 20
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/ResultsCard.tsx",
-                                                            lineNumber: 107,
+                                                            lineNumber: 106,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/ResultsCard.tsx",
-                                                        lineNumber: 106,
+                                                        lineNumber: 105,
                                                         columnNumber: 17
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1511,7 +1560,7 @@ const ResultsCard = ()=>{
                                                                 children: "厚生年金保険料"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/ResultsCard.tsx",
-                                                                lineNumber: 110,
+                                                                lineNumber: 109,
                                                                 columnNumber: 19
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1519,19 +1568,19 @@ const ResultsCard = ()=>{
                                                                 children: "年金の基礎"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/ResultsCard.tsx",
-                                                                lineNumber: 111,
+                                                                lineNumber: 110,
                                                                 columnNumber: 19
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/ResultsCard.tsx",
-                                                        lineNumber: 109,
+                                                        lineNumber: 108,
                                                         columnNumber: 17
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/ResultsCard.tsx",
-                                                lineNumber: 105,
+                                                lineNumber: 104,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1542,13 +1591,13 @@ const ResultsCard = ()=>{
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/ResultsCard.tsx",
-                                                lineNumber: 114,
+                                                lineNumber: 113,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/ResultsCard.tsx",
-                                        lineNumber: 104,
+                                        lineNumber: 103,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1563,12 +1612,12 @@ const ResultsCard = ()=>{
                                                             size: 20
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/ResultsCard.tsx",
-                                                            lineNumber: 121,
+                                                            lineNumber: 120,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/ResultsCard.tsx",
-                                                        lineNumber: 120,
+                                                        lineNumber: 119,
                                                         columnNumber: 17
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1578,7 +1627,7 @@ const ResultsCard = ()=>{
                                                                 children: "雇用保険料"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/ResultsCard.tsx",
-                                                                lineNumber: 124,
+                                                                lineNumber: 123,
                                                                 columnNumber: 19
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1590,19 +1639,19 @@ const ResultsCard = ()=>{
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/ResultsCard.tsx",
-                                                                lineNumber: 125,
+                                                                lineNumber: 124,
                                                                 columnNumber: 19
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/ResultsCard.tsx",
-                                                        lineNumber: 123,
+                                                        lineNumber: 122,
                                                         columnNumber: 17
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/ResultsCard.tsx",
-                                                lineNumber: 119,
+                                                lineNumber: 118,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1613,13 +1662,13 @@ const ResultsCard = ()=>{
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/ResultsCard.tsx",
-                                                lineNumber: 128,
+                                                lineNumber: 127,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/ResultsCard.tsx",
-                                        lineNumber: 118,
+                                        lineNumber: 117,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1634,12 +1683,12 @@ const ResultsCard = ()=>{
                                                             size: 20
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/ResultsCard.tsx",
-                                                            lineNumber: 135,
+                                                            lineNumber: 134,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/ResultsCard.tsx",
-                                                        lineNumber: 134,
+                                                        lineNumber: 133,
                                                         columnNumber: 17
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1649,7 +1698,7 @@ const ResultsCard = ()=>{
                                                                 children: "源泉所得税"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/ResultsCard.tsx",
-                                                                lineNumber: 138,
+                                                                lineNumber: 137,
                                                                 columnNumber: 19
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1661,19 +1710,19 @@ const ResultsCard = ()=>{
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/ResultsCard.tsx",
-                                                                lineNumber: 139,
+                                                                lineNumber: 138,
                                                                 columnNumber: 19
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/ResultsCard.tsx",
-                                                        lineNumber: 137,
+                                                        lineNumber: 136,
                                                         columnNumber: 17
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/ResultsCard.tsx",
-                                                lineNumber: 133,
+                                                lineNumber: 132,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1684,13 +1733,13 @@ const ResultsCard = ()=>{
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/ResultsCard.tsx",
-                                                lineNumber: 142,
+                                                lineNumber: 141,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/ResultsCard.tsx",
-                                        lineNumber: 132,
+                                        lineNumber: 131,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1707,24 +1756,24 @@ const ResultsCard = ()=>{
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/ResultsCard.tsx",
-                                                    lineNumber: 147,
+                                                    lineNumber: 146,
                                                     columnNumber: 24
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/ResultsCard.tsx",
-                                            lineNumber: 146,
+                                            lineNumber: 145,
                                             columnNumber: 16
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/components/ResultsCard.tsx",
-                                        lineNumber: 145,
+                                        lineNumber: 144,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/ResultsCard.tsx",
-                                lineNumber: 80,
+                                lineNumber: 79,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1749,12 +1798,12 @@ const ResultsCard = ()=>{
                                                             fill: entry.color
                                                         }, `cell-${index}`, false, {
                                                             fileName: "[project]/components/ResultsCard.tsx",
-                                                            lineNumber: 168,
+                                                            lineNumber: 167,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)))
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/ResultsCard.tsx",
-                                                    lineNumber: 156,
+                                                    lineNumber: 155,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$recharts$2f$es6$2f$component$2f$Tooltip$2e$js__$5b$client$5d$__$28$ecmascript$29$__["Tooltip"], {
@@ -1770,18 +1819,18 @@ const ResultsCard = ()=>{
                                                     }
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/ResultsCard.tsx",
-                                                    lineNumber: 171,
+                                                    lineNumber: 170,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/ResultsCard.tsx",
-                                            lineNumber: 155,
+                                            lineNumber: 154,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/components/ResultsCard.tsx",
-                                        lineNumber: 154,
+                                        lineNumber: 153,
                                         columnNumber: 14
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1792,7 +1841,7 @@ const ResultsCard = ()=>{
                                                 children: "手取り"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/ResultsCard.tsx",
-                                                lineNumber: 178,
+                                                lineNumber: 177,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1803,13 +1852,13 @@ const ResultsCard = ()=>{
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/ResultsCard.tsx",
-                                                lineNumber: 179,
+                                                lineNumber: 178,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/ResultsCard.tsx",
-                                        lineNumber: 177,
+                                        lineNumber: 176,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1824,49 +1873,49 @@ const ResultsCard = ()=>{
                                                         }
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/ResultsCard.tsx",
-                                                        lineNumber: 184,
+                                                        lineNumber: 183,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     entry.name
                                                 ]
                                             }, i, true, {
                                                 fileName: "[project]/components/ResultsCard.tsx",
-                                                lineNumber: 183,
+                                                lineNumber: 182,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0)))
                                     }, void 0, false, {
                                         fileName: "[project]/components/ResultsCard.tsx",
-                                        lineNumber: 181,
+                                        lineNumber: 180,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/ResultsCard.tsx",
-                                lineNumber: 153,
+                                lineNumber: 152,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/ResultsCard.tsx",
-                        lineNumber: 78,
+                        lineNumber: 77,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/ResultsCard.tsx",
-                lineNumber: 65,
+                lineNumber: 64,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/components/ResultsCard.tsx",
-        lineNumber: 55,
+        lineNumber: 54,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(ResultsCard, "FXLNm3L89CCewfdANi+x51g0rTc=", false, function() {
+_s(ResultsCard, "axxAW44u+yy2Pt+WLOzaVvgvMH0=", false, function() {
     return [
-        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["useSelector"]
+        __TURBOPACK__imported__module__$5b$project$5d2f$store$2f$index$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["useAppSelector"]
     ];
 });
 _c = ResultsCard;
@@ -2022,4 +2071,4 @@ __turbopack_context__.r("[next]/entry/page-loader.ts { PAGE => \"[project]/pages
 }),
 ]);
 
-//# sourceMappingURL=%5Broot-of-the-server%5D__1ca5c1d7._.js.map
+//# sourceMappingURL=%5Broot-of-the-server%5D__2abe2889._.js.map
