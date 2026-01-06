@@ -1,29 +1,55 @@
-#
-# Dockerfile to build and serve the Vite React app
-#
-FROM node:20-alpine AS build
+# Cloud Run用Next.js Dockerfile - 生产环境
+FROM node:24.11.1 AS builder
 
+# 作業ディレクトリを設定
 WORKDIR /app
 
-# Install dependencies based on the lockfile to ensure reproducible builds
+# 构建参数 - 可以在构建时通过 --build-arg 传递
+# Cloud Run 部署时可以通过构建参数设置
+ARG NEXT_PUBLIC_ENV=prod
+ENV NEXT_PUBLIC_ENV=$NEXT_PUBLIC_ENV
+
+# package.jsonとpackage-lock.jsonをコピー
 COPY package*.json ./
+
+# すべての依存関係をインストール
 RUN npm ci
 
-# Build the production bundle
+# ソースコードをコピー
 COPY . .
+
+# Next.js アプリケーションをビルド（standalone モード）
 RUN npm run build
 
-# Use a lightweight web server image to serve the static assets
-FROM nginx:1.27-alpine AS runtime
+# 本番段階 - Next.js standalone モードで実行
+FROM node:24.11.1 AS production
 
-# Install envsubst to render nginx template with PORT
-RUN apk add --no-cache gettext
+# 作業ディレクトリを設定
+WORKDIR /app
 
-COPY --from=build /app/dist /usr/share/nginx/html
+# 非rootユーザーを作成（セキュリティのため）
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
 
-# Provide template so Cloud Run's PORT env is injected at runtime
-COPY nginx.conf.template /etc/nginx/conf.d/default.conf.template
+# ビルド段階から必要なファイルをコピー
+# standalone 模式已经包含了所有必要的文件，包括 node_modules
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+# 复制 public 目录（standalone 模式需要）
+COPY --from=builder /app/public ./public
 
+# nextjsユーザーに切り替え
+USER nextjs
+
+# ポートを公開（Cloud Run は PORT 環境変数を使用）
 EXPOSE 8080
-CMD ["sh", "-c", "envsubst '$PORT' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"]
 
+# 環境変数を設定（Cloud Run で設定された環境変数が使用される）
+ENV PORT=8080
+ENV HOSTNAME="0.0.0.0"
+# 从构建阶段传递环境变量（虽然 NEXT_PUBLIC_* 在构建时已内嵌，但为了保险起见也设置）
+ARG NEXT_PUBLIC_ENV=prod
+ENV NEXT_PUBLIC_ENV=$NEXT_PUBLIC_ENV
+
+# Next.js サーバーを起動
+CMD ["node", "server.js"]
