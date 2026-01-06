@@ -1,5 +1,20 @@
 import axios from 'axios';
 
+// 根据 NEXT_PUBLIC_ENV 获取 API 基地址
+const getApiBaseURL = (): string => {
+  const env = process.env.NEXT_PUBLIC_ENV || 'dev';
+  
+  switch (env) {
+    case 'prod':
+      return 'https://social-insurance-backend-service-884028304162.asia-northeast1.run.app';
+    case 'test':
+      return 'http://localhost';
+    case 'dev':
+    default:
+      return 'http://localhost:9002';
+  }
+};
+
 // 创建 axios 实例，配置基础 URL
 // 在 Next.js 中，优先使用 API 代理避免 CORS 问题
 const getBaseURL = () => {
@@ -11,11 +26,11 @@ const getBaseURL = () => {
       return ''; // 使用相对路径，通过 Next.js API 代理
     }
     // 直接调用后端 API
-    const baseURL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:9002';
+    const baseURL = process.env.NEXT_PUBLIC_API_URL || getApiBaseURL();
     return baseURL.endsWith('/') ? baseURL.slice(0, -1) : baseURL;
   }
   // 在服务端渲染时，直接使用后端 API
-  const baseURL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:9002';
+  const baseURL = process.env.NEXT_PUBLIC_API_URL || getApiBaseURL();
   return baseURL.endsWith('/') ? baseURL.slice(0, -1) : baseURL;
 };
 

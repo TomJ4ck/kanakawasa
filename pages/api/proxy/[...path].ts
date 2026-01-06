@@ -1,7 +1,22 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import axios from 'axios';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:9002';
+// 根据 NEXT_PUBLIC_ENV 获取 API 基地址
+const getApiBaseURL = (): string => {
+  const env = process.env.NEXT_PUBLIC_ENV || 'dev';
+  
+  switch (env) {
+    case 'prod':
+      return 'https://social-insurance-backend-service-884028304162.asia-northeast1.run.app';
+    case 'test':
+      return 'http://localhost';
+    case 'dev':
+    default:
+      return 'http://localhost:9002';
+  }
+};
+
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || getApiBaseURL();
 
 export default async function handler(
   req: NextApiRequest,
