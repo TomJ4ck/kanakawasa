@@ -1,0 +1,3 @@
+{
+  "/api/proxy/[...path]": "pages/api/proxy/[...path].js"
+}

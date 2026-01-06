@@ -53,7 +53,7 @@ api.interceptors.request.use(
     if (process.env.NODE_ENV === 'development') {
       console.log('API Request:', {
         method: config.method?.toUpperCase(),
-        url: config.baseURL + config.url,
+        url: (config.baseURL || '') + (config.url || ''),
         params: config.params,
       });
     }
