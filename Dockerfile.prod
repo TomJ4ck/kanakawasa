@@ -45,6 +45,9 @@ EXPOSE 8080
 # 環境変数を設定（Cloud Run で設定された環境変数が使用される）
 ENV PORT=8080
 ENV HOSTNAME="0.0.0.0"
+# 从构建阶段传递环境变量（虽然 NEXT_PUBLIC_* 在构建时已内嵌，但为了保险起见也设置）
+ARG NEXT_PUBLIC_ENV=prod
+ENV NEXT_PUBLIC_ENV=$NEXT_PUBLIC_ENV
 
 # Next.js サーバーを起動
 CMD ["node", "server.js"]
